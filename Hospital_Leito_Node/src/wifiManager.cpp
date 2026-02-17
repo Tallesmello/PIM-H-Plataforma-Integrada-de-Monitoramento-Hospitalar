@@ -1,22 +1,28 @@
 #include <WiFi.h>
 #include "Config.h"
-#include "wifiManager.h"
+#include "WifiManager.h"
 
-void setupWiFi() {
-    delay(10);
+unsigned long lastReconnectAttempt = 0;
+
+void connectWiFi() {
     Serial.println();
     Serial.print("Conectando em: ");
     Serial.println(WIFI_SSID);
 
     WiFi.begin(WIFI_SSID, WIFI_PASS);
+}
 
-    while (WiFi.status() != WL_CONNECTED) {
-        delay(500);
-        Serial.print(".");
+void setupWiFi() {
+    connectWiFi();
+}
+
+void checkWiFiConnection() {
+    if (WiFi.status() != WL_CONNECTED) {
+        unsigned long now = millis();
+        if (now - lastReconnectAttempt > 5000) {
+            Serial.println("Reconectando WiFi...");
+            connectWiFi();
+            lastReconnectAttempt = now;
+        }
     }
-
-    Serial.println("");
-    Serial.println("WiFi Conectado!");
-    Serial.print("IP: ");
-    Serial.println(WiFi.localIP());
 }

@@ -8,7 +8,7 @@
 #define WIFI_PASS ""
 
 // --- Configurações MQTT ---
-#define MQTT_SERVER "broker.hivemq.com"
+#define MQTT_SERVER "broker.emqx.io"
 #define MQTT_PORT 1883
 // O '+' permite ouvir hospital/leito/01, hospital/leito/02, etc.
 #define TOPIC_SUBSCRIBE "hospital/leito/+/dados" 

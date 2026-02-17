@@ -9,7 +9,7 @@
 #define WIFI_PASS ""
 
 // --- MQTT Broker (HiveMQ Público) ---
-#define MQTT_SERVER "broker.hivemq.com"
+#define MQTT_SERVER "broker.emqx.io"
 #define MQTT_PORT 1883
 #define TOPIC_PUBLISH "hospital/leito/01/dados"
 

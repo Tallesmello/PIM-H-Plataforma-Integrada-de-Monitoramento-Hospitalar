@@ -3,5 +3,6 @@
 #include <Arduino.h>
 
 void setupWiFi();
+void checkWiFiConnection();
 
 #endif

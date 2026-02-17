@@ -20,7 +20,7 @@ void sendLeitoToCloud(int leitoNum, int volume, int status) {
         int httpCode = http.GET();
         
         if (httpCode > 0) {
-            Serial.printf("[NUVEM] Dados do Leito %02d enviados! (Code: %d)\n", leitoNum, httpCode);
+            Serial.printf("\n[NUVEM] Dados do Leito %02d enviados! (Code: %d)\n", leitoNum, httpCode);
         }
         http.end();
     }
